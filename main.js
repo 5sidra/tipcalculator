@@ -1,11 +1,18 @@
-let btn = document.getElementById('btn');
+document.querySelector('#tip-form').onchange = function(){
 
-btn.addEventListener('click', function(){
-    var billAmount = document.getElementById('bill_amount').value;
-    var tipPercentage = document.getElementById('tip_percentage').value;
-
-    var tipAmount = billAmount / tipPercentage;
-    console.log(tipAmount)
-    document.getElementById('total_amount').value = tipAmount
-    document.getElementById('total_bill').value = parseFloat(billAmount) + parseFloat(tipAmount);
-})
+    var bill = Number(document.getElementById('billTotal').value);
+    var tip = document.getElementById('tipInput').value;
+    document.getElementById('tipOutput').innerHTML = `${tip}%`;
+    var tipValue = bill * (tip/100)
+    var finalBill = bill + tipValue
+  console.log(finalBill)
+  var tipAmount = document.querySelector('#tipAmount')
+  var totalBillWithTip = document.querySelector('#totalBillWithTip')
+  
+  tipAmount.value = tipValue.toFixed(2);
+   totalBillWithTip.value =finalBill.toFixed(2);
+  
+   //Show Results
+  
+    document.getElementById('results').style.display='block'
+  }
